@@ -17,7 +17,7 @@ cd to workDir directory to apply overrides, or any directory where you would rat
 ```bash
 ../dist/selfExeSample_launcher.sh
 ```
-Note: it has name as: <process name>_launcher.sh
+Note: it has name as: &lt;process name&gt;_launcher.sh
 
 ## Options
 
