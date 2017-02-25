@@ -17,7 +17,12 @@ cd to workDir directory to apply overrides, or any directory where you would rat
 ```bash
 ../dist/selfExeSample_launcher.sh
 ```
-Note: it has name as: &lt;process name&gt;_launcher.sh
+OR, if you had passed arch flag as x64, then:
+```bash
+../dist/selfExeSample_x64_launcher.sh
+```
+
+Note: it has name as: &lt;process name&gt;[_&lt;arch flag&gt;]_launcher.sh
 
 ## Options
 
@@ -27,7 +32,7 @@ Note: it has name as: &lt;process name&gt;_launcher.sh
 * m: Path to nodejs **module** with dependencies
 * o: **Output** directory for the package.
 * t: Direct path to gzipped **tar** file, if you already have bundled it.
-* a: processor/OS arch, Ex. x86/x64. Only used in file name, so you know which file is built with which node binary. 
+* a: Processor/OS arch, Ex. x86/x64. Only used in file name, so you know which file is built with which node binary. 
 
 ## Directory structure
 * /mymodule: a sample node package. Check out the index.js file for sample code.
