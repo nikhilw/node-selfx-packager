@@ -18,7 +18,7 @@ const defaults = {
 // Your second param is the application.json file in pwd, place where you are running the command from.
 // You are of course free to use a config manager like nconf.
 var options = {};
-if (process.argv[3]) {
+if (process.argv[3] && fs.existsSync(process.argv[3])) {
 	options = JSON.parse(fs.readFileSync(process.argv[3], "utf8"));
 };
 

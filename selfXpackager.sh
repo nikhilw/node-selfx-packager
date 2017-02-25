@@ -2,7 +2,7 @@
 BASEDIR=`dirname "${0}"`
 cd "$BASEDIR"
 
-while getopts ":t:s:n:b:m:o:" opt; do
+while getopts ":t:s:n:b:m:o:a:" opt; do
   case $opt in
     t) targpkg="$OPTARG"
     ;;
@@ -15,6 +15,8 @@ while getopts ":t:s:n:b:m:o:" opt; do
     m) nmodule="$OPTARG"
     ;;
     o) outdir="$OPTARG"
+    ;;
+    a) arch="$OPTARG"
     ;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
@@ -32,6 +34,11 @@ tmp=__extract__$RANDOM
 if [ "$targpkg" == "" ] && [ -z "$nodebin" ]; then 
     echo "Error: Either package archive (t) or node binary and module paths are mandatory."
     exit 1;
+fi
+
+archname=""
+if [  "$arch" != "" ]; then
+    archname="_$arch"
 fi
 
 echo "Info: Begin packaging.."
@@ -62,6 +69,7 @@ cd /tmp/$pname
 exit 0
 __targpkg_BELOW__\n" > "$tmp"
 
+pname+=$archname
 pname+="_launcher.sh"
 cp $script $outdir/$pname
 
